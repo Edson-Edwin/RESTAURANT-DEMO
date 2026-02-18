@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Menu - Ruchi Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="menu.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <a href="../../index.html" class="back-btn">← Back to Home</a>
+    <h1>Our Menu</h1>
+</header>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="menu-section">
+
+        <div class="categories">
+            <ul>
+                <li onclick="filterItems('all')" class="active">All</li>
+                <li onclick="filterItems('Main')">Main</li>
+                <li onclick="filterItems('fried')">Fried</li>
+                <li onclick="filterItems('drinks')">Drinks</li>
+            </ul>
+        </div>
+
+        <div class="items" id="items-container"></div>
+
+    </div>
+
+    <!-- RIGHT SIDE CART -->
+    <div class="cart-section">
+        <h2>Your Order</h2>
+        <div id="cart-items"></div>
+
+        <div class="cart-total">
+            <span>Total</span>
+            <h2>₹<span id="grand-total">0</span></h2>
+        </div>
+
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+</div>
+
+<script src="menu.js"></script>
+<!-- Confirmation Modal -->
+<div class="modal" id="confirmModal">
+    <div class="modal-content">
+        <h2>Confirm Your Order</h2>
+        <p>Do you want to proceed to checkout?</p>
+        <div class="modal-buttons">
+            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            <button class="confirm-btn" onclick="confirmOrder()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Screen -->
+<div class="success-screen" id="successScreen">
+    <div class="success-box">
+        <div class="checkmark">
+    <div class="tick"></div>
+</div>
+        <h2>Checkout Successful</h2>
+        <p>Your order has been placed successfully.</p>
+        <button onclick="closeSuccess()">Back to Menu</button>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>Ruchi Restaurant</h2>
+                <p>Experience the finest dining with authentic flavors and a warm ambiance. We are passionate about
+                    serving the best food to our customers.</p>
+                <div class="socials">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">TW</a>
+                    <a href="#">YT</a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Reservations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p>123 Culinary Avenue, Food City, FC 45678</p>
+                <p>Email: info@ruchirestaurant.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Ruchi Restaurant | Designed by Edson
+        </div>
+    </footer>
+
+</body>
+</html>

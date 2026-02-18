@@ -42,47 +42,18 @@ function filterItems(category) {
     }
 }
 
-/* Simple toast popup with icon */
-function showToast(message, type = "success") {
-    const toast = document.getElementById("toast");
-    if (!toast) return;
-
-    const icon = type === "error" ? "✕" : "✓";
-
-    // Set content with icon + message
-    toast.innerHTML = `<span class="toast-icon">${icon}</span><span class="toast-message">${message}</span>`;
-
-    // Apply color style
-    toast.classList.remove("toast-success", "toast-error");
-    if (type === "error") {
-        toast.classList.add("toast-error");
-    } else {
-        toast.classList.add("toast-success");
-    }
-
-    toast.classList.add("show");
-
-    clearTimeout(showToast._timeoutId);
-    showToast._timeoutId = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2200);
-}
-
 /* ADD TO CART */
 function addToCart(id) {
-    const menuItem = menuItems.find(item => item.id === id);
-    if (!menuItem) return;
-
     const existing = cart.find(item => item.id === id);
 
     if (existing) {
         existing.quantity++;
     } else {
-        cart.push({ ...menuItem, quantity: 1 });
+        const item = menuItems.find(item => item.id === id);
+        cart.push({ ...item, quantity: 1 });
     }
 
     updateCart();
-    showToast(`${menuItem.name} added to cart`, "success");
 }
 
 /* UPDATE CART */
@@ -118,24 +89,20 @@ function updateCart() {
 
 function changeQty(id, amount) {
     const item = cart.find(item => item.id === id);
-    if (!item) return;
-
     item.quantity += amount;
 
     if (item.quantity <= 0) {
         cart = cart.filter(i => i.id !== id);
-        updateCart();
-        showToast(`${item.name} removed from cart`, "error");
-    } else {
-        updateCart();
     }
+
+    updateCart();
 }
 
 displayItems(menuItems);
 // Checkout button click
 document.querySelector(".checkout-btn").addEventListener("click", () => {
     if (cart.length === 0) {
-        showToast("Your cart is empty!", "error");
+        alert("Your cart is empty!");
         return;
     }
 

@@ -102,7 +102,10 @@ body {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 35px;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
 nav ul li a {
@@ -662,20 +665,26 @@ footer {
         width: 92%;
         padding: 15px;
         border-radius: 20px;
-        background: rgba(15, 15, 15, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        /* Glass effect similar to desktop */
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav ul {
-        flex-wrap: wrap;
-        gap: 12px 20px;
+        /* Keep all nav links in a single horizontal line */
+        flex-wrap: nowrap;
+        gap: 12px;
         padding: 0;
-        justify-content: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     nav ul li a {
         font-size: 13px;
+        white-space: nowrap;
     }
 
     /* Hero Section Mobile */
@@ -712,24 +721,10 @@ footer {
         align-items: center;
     }
 
-    /* Images Mobile */
-    .right {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .image-box {
-        width: 100%;
-        max-width: 320px;
-        height: 240px;
-    }
-
+    /* Hide right-side hero images on mobile */
+    .right,
     .floating-png {
-        width: 90px;
-        top: -30px;
-        right: 0;
+        display: none;
     }
 
     /* Testimonials Mobile */

@@ -20,6 +20,11 @@ body {
         linear-gradient(135deg, #0b0b0b, #121212 40%, #0f0f0f 100%);
 }
 
+/* When mobile cart drawer is open, prevent background scrolling */
+body.no-scroll {
+    overflow: hidden;
+}
+
 
 /* HEADER */
 
@@ -46,6 +51,9 @@ header h1 {
 }
 
 .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     text-decoration: none;
     color: #f4b860;
     font-weight: 500;
@@ -54,6 +62,14 @@ header h1 {
 
 .back-btn:hover {
     opacity: 0.7;
+}
+
+.back-icon {
+    font-size: 18px;
+}
+
+.back-text {
+    font-size: 14px;
 }
 
 /* LAYOUT */
@@ -259,12 +275,42 @@ header h1 {
     }
 
     .items {
+<<<<<<< HEAD
         grid-template-columns: 1fr;
         /* Single column for mobile cards */
+=======
+        /* At least two cards per row on mobile */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    /* Make each product card shorter on mobile */
+    .item {
+        border-radius: 20px;
+>>>>>>> edson
     }
 
     .item img {
-        height: 180px;
+        height: 130px;
+    }
+
+    .item-content {
+        padding: 16px 14px;
+    }
+
+    .item h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 13px;
     }
 
     .cart-section {
@@ -274,7 +320,8 @@ header h1 {
     /* Ensure modals fit on small screens */
     .modal-content,
     .success-box {
-        width: 90%;
+        width: 100%;
+        max-width: 420px;
         padding: 30px 20px;
     }
 }
@@ -955,6 +1002,30 @@ footer {
 
         transition: right 0.4s cubic-bezier(.77,0,.18,1);
         z-index: 1000;
+
+        /* Keep checkout button pinned at bottom */
+        display: flex;
+        flex-direction: column;
+        padding: 40px 24px 24px;
+        box-sizing: border-box;
+    }
+
+    /* Scroll only the list, keep total + checkout fixed */
+    #cart-items {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding-right: 4px;
+        margin-bottom: 16px;
+    }
+
+    .cart-total {
+        margin-top: 0;
+        padding-top: 16px;
+    }
+
+    .checkout-btn {
+        margin-top: 16px;
     }
 
     /* When active */
@@ -962,3 +1033,31 @@ footer {
         right: 0;
     }
 }
+<<<<<<< HEAD
+=======
+
+/* Fine-tune cart button alignment on small phones */
+@media (max-width: 600px) {
+    header {
+        position: relative;
+    }
+
+    .mobile-cart-btn {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+
+    /* On very small screens show only arrow for back button */
+    .back-btn .back-text {
+        display: none;
+    }
+
+    /* Make toast popup wider on small phones */
+    .toast {
+        width: calc(100% - 40px);
+        max-width: 420px;
+        padding: 12px 20px;
+    }
+}
+>>>>>>> edson

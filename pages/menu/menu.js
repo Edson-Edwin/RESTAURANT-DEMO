@@ -126,9 +126,11 @@ function closeSuccess() {
 function openCart() {
     document.getElementById("cartSection").classList.add("active");
     document.getElementById("drawerOverlay").classList.add("active");
+    document.body.classList.add("no-scroll");
 }
 
 function closeCart() {
     document.getElementById("cartSection").classList.remove("active");
     document.getElementById("drawerOverlay").classList.remove("active");
+    document.body.classList.remove("no-scroll");
 }

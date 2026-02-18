@@ -1059,6 +1059,7 @@ footer {
         right: -100%;
         width: 320px;
         height: 100vh;
+        height: 100dvh; /* Use dynamic viewport height on mobile */
 
         background: rgba(20,20,20,0.98);
         backdrop-filter: blur(20px);
@@ -1071,7 +1072,7 @@ footer {
         /* Keep checkout button pinned at bottom */
         display: flex;
         flex-direction: column;
-        padding: 40px 24px 24px;
+        padding: 28px 20px 20px;
         box-sizing: border-box;
     }
 
@@ -1079,18 +1080,19 @@ footer {
     #cart-items {
         flex: 1;
         min-height: 0;
-        overflow-y: auto;
+        overflow-y: auto;  /* products scroll */
         padding-right: 4px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
     .cart-total {
         margin-top: 0;
-        padding-top: 16px;
+        padding-top: 12px;
     }
 
     .checkout-btn {
-        margin-top: 16px;
+        margin-top: 12px;
+        margin-bottom: 32px; /* lift button further above the bottom edge for mobile users */
     }
 
     /* When active */

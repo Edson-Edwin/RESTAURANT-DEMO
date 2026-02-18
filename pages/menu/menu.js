@@ -94,13 +94,20 @@ function updateCart() {
 
         cartContainer.innerHTML += `
             <div class="cart-item">
-                <div>
-                    <strong>${item.name}</strong>
-                    <p style="color:#f4b860; font-size:14px;">
-                        ₹${item.price} × ${item.quantity} = ₹${itemTotal}
-                    </p>
+                
+                <!-- LEFT SIDE (IMAGE + DETAILS) -->
+                <div class="cart-info">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    
+                    <div class="cart-text">
+                        <strong>${item.name}</strong>
+                        <p class="cart-price">
+                            ₹${item.price} × ${item.quantity} = ₹${itemTotal}
+                        </p>
+                    </div>
                 </div>
 
+                <!-- RIGHT SIDE (QUANTITY) -->
                 <div class="qty-controls">
                     <button onclick="changeQty(${item.id}, -1)">-</button>
                     <span>${item.quantity}</span>
@@ -112,6 +119,7 @@ function updateCart() {
 
     grandTotal.innerText = total;
 }
+
 
 
 function changeQty(id, amount) {

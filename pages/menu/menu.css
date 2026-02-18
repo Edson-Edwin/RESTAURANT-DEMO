@@ -339,11 +339,9 @@ header h1 {
 .cart-section {
     width: 30%;
     padding: 40px 30px;
-
     position: sticky;
     top: 40px;
     height: fit-content;
-
     border-radius: 30px;
 
     /* Luxury glass */
@@ -352,16 +350,16 @@ header h1 {
     -webkit-backdrop-filter: blur(20px);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
-
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
 
     transition: all 0.3s ease;
 }
 
-/* Cart Title */
+/* ================= CART TITLE ================= */
+
 .cart-section h2 {
     font-size: 22px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
     background: linear-gradient(135deg, #ffffff, #f4b860);
     -webkit-background-clip: text;
@@ -374,22 +372,90 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .cart-item:hover {
-    transform: translateX(5px);
+    transform: translateX(6px);
 }
 
-/* Item Name */
-.cart-item span {
-    font-size: 14px;
-    color: #ddd;
+/* ================= LEFT SIDE (IMAGE + TEXT) ================= */
+
+.cart-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
+
+/* Product Image */
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    object-fit: cover;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: 0.3s ease;
+}
+
+.cart-item:hover .cart-item-img {
+    transform: scale(1.05);
+}
+
+/* ================= TEXT ================= */
+
+.cart-text strong {
+    font-size: 14px;
+    display: block;
+    color: #fff;
+}
+
+.cart-price {
+    font-size: 13px;
+    margin-top: 4px;
+    color: #f4b860;
+    font-weight: 500;
+}
+
+/* ================= QUANTITY CONTROLS ================= */
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-controls button {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.qty-controls button:hover {
+    background: linear-gradient(135deg, #f4b860, #e6a840);
+    color: #111;
+    transform: scale(1.1);
+}
+
+.qty-controls span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
 
 /* ================= QUANTITY CONTROLS ================= */
 

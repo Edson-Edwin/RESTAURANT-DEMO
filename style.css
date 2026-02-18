@@ -672,17 +672,22 @@ footer {
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    /* Nav links: single line, evenly spaced across the bar */
     nav ul {
-        /* Keep all nav links in a single horizontal line */
         flex-wrap: nowrap;
-        gap: 12px;
+        gap: 0;
         padding: 0;
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        justify-content: space-between;
+        overflow-x: hidden;
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
     }
 
     nav ul li a {
+        display: block;
         font-size: 13px;
         white-space: nowrap;
     }

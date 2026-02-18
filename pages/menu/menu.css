@@ -248,16 +248,27 @@ header h1 {
 
 @media (max-width: 600px) {
     header {
-        flex-direction: column;
-        /* Stack header items */
-        gap: 15px;
-        padding: 20px;
-        text-align: center;
+        /* Keep header elements on a single row with centered title */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 18px;
     }
 
     header h1 {
-        font-size: 28px;
-        /* Smaller font for mobile */
+        font-size: 26px;
+        text-align: center;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+
+    /* Position back arrow on the left */
+    .back-btn {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .container {
@@ -275,10 +286,6 @@ header h1 {
     }
 
     .items {
-<<<<<<< HEAD
-        grid-template-columns: 1fr;
-        /* Single column for mobile cards */
-=======
         /* At least two cards per row on mobile */
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
@@ -287,7 +294,6 @@ header h1 {
     /* Make each product card shorter on mobile */
     .item {
         border-radius: 20px;
->>>>>>> edson
     }
 
     .item img {
@@ -970,6 +976,65 @@ footer {
     visibility: visible;
 }
 
+/* ===== TOAST NOTIFICATION ===== */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%) translateY(100%);
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid rgba(244, 184, 96, 0.7);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3000;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.toast-success {
+    background: rgba(46, 125, 50, 0.95);
+    border-color: #2e7d32;
+}
+
+.toast-error {
+    background: rgba(198, 40, 40, 0.95);
+    border-color: #c62828;
+}
+
+.toast-success .toast-icon {
+    background-color: #2e7d32;
+    color: #fff;
+}
+
+.toast-error .toast-icon {
+    background-color: #c62828;
+    color: #fff;
+}
+
 /* ================= MOBILE ONLY ================= */
 
 @media (max-width: 768px) {
@@ -1033,19 +1098,14 @@ footer {
         right: 0;
     }
 }
-<<<<<<< HEAD
-=======
 
-/* Fine-tune cart button alignment on small phones */
+/* Fine-tune cart button alignment and back arrow on small phones */
 @media (max-width: 600px) {
-    header {
-        position: relative;
-    }
-
     .mobile-cart-btn {
         position: absolute;
         right: 16px;
-        top: 16px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     /* On very small screens show only arrow for back button */
@@ -1060,4 +1120,3 @@ footer {
         padding: 12px 20px;
     }
 }
->>>>>>> edson

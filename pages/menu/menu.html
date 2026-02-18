@@ -12,6 +12,8 @@
 <header>
     <a href="../../index.html" class="back-btn">← Back to Home</a>
     <h1>Our Menu</h1>
+    <button class="mobile-cart-btn" onclick="openCart()">🛒</button>
+
 </header>
 
 <div class="container">
@@ -33,7 +35,7 @@
     </div>
 
     <!-- RIGHT SIDE CART -->
-    <div class="cart-section">
+    <div class="cart-section" id="cartSection">
         <h2>Your Order</h2>
         <div id="cart-items"></div>
 
@@ -48,6 +50,10 @@
 </div>
 
 <script src="menu.js"></script>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
 <!-- Confirmation Modal -->
 <div class="modal" id="confirmModal">
     <div class="modal-content">
@@ -106,6 +112,6 @@
             &copy; 2024 Ruchi Restaurant | Designed by Edson
         </div>
     </footer>
-
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeCart()"></div>
 </body>
 </html>
